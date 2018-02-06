@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>In-Class Exercise 10: Arrays</title>
+</head>
+
+<body>
+<div id="main">
+	<p id="output"></p>
+</div>
+<script>
+var output = document.getElementById("output");
+var planetNames = ["Jupiter", "Venus", "Saturn", "Mars", "Moon"];
+var distancesFromEarth = [5.2, 0.72, 9.5, 1.5, 2.3];
+var sunnyInAugust = [false, true, false, true, false];
+
+//1. Display the planet information
+for(var i = 0; i < planetNames.length; i++)
+{
+  output.innerHTML+="<b><span style='color: red'>" + planetNames[i] + "</b></span>"+ "<br />";
+  output.innerHTML+=distancesFromEarth[i] +"<br />";
+  output.innerHTML+=sunnyInAugust[i] + "<br />";
+  output.innerHTML+="----------" + "<br />";
+
+}
+
+//2. Find out which planets are Sunny in August
+
+output.innerHTML+="These planets are sunny in August:";
+
+for(var i = 0; i < planetNames.length; i++)
+{
+  if(sunnyInAugust[i])
+  {
+    output.innerHTML+= "<b><span style='color: red'>" + planetNames[i] + "</b></span>" + "<br />";
+  }
+}
+
+
+
+</script>
+</body>
+</html>
