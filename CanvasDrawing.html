@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Introduction to Canvas: Drawing Shapes and Paths</title>
-    <link rel="stylesheet" href="css/styles.css">
+<meta charset="utf-8">
+<title>Introduction to Canvas: Drawing Shapes and Paths</title>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <canvas id="myCanvas" width="500" height="500">
-        <!-- Insert fallback content here -->
-    </canvas>
-    <script>
-    	var canvas = document.querySelector("#myCanvas");
+<canvas id="myCanvas" width="1500" height="1500">
+<!-- Insert fallback content here -->
+</canvas>
+<script>
+var canvas = document.querySelector("#myCanvas");
 var ctx = canvas.getContext("2d");
-
+var ctx2 = canvas.getContext("2d");
 ctx.save();			// save previous display state
-
-		
+	
 // draw P text
 ctx.fillStyle  = "black";
 ctx.font = "bold 120px Arial";
@@ -35,7 +34,39 @@ ctx.lineTo(260, 230);
 ctx.stroke();
 ctx.closePath();
 
+//2nd road sign
+ctx2.save();			// save previous display state
+//  set drawing properties for the sign
+ctx2.lineWidth = 32;	       // nice wide line		
+ctx2.lineJoin = "round";	   // rounded corners
+ctx2.strokeStyle = "darkorange";
+ctx2.fillStyle = "darkorange";
 
+// create octagon linear path
+ctx2.beginPath();
+ctx2.moveTo(400, 300);
+ctx2.lineTo(600, 500);
+ctx2.lineTo(400, 700);
+ctx2.lineTo(200, 500);
+
+ctx2.closePath();
+
+
+ctx2.fill();
+ctx2.stroke();	
+
+
+ctx2.strokeStyle = "black";
+ctx2.lineWidth = 10;
+ctx2.stroke();
+
+// draw STOP text
+ctx2.fillStyle  = "black";
+ctx2.font = "bold 50px Arial";
+ctx2.fillText( "ROAD" ,330, 445);
+ctx2.fillText( "WORK" ,323, 505);
+ctx2.fillText( "AHEAD" ,317, 565);
+ctx2.restore();		// restore previous display state
 
 </script>
 </body>
